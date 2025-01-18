@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+#include<cstdio>
+#include <iostream> 
+#define ll long long
+#define endl '\n'
+using namespace std;
+
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    string s;
+    cin>>s;
+    
+    ll maxi = 1, cnt = 1;
+    
+    for(int i=1; i<s.size(); i++){
+        if(s[i]==s[i-1]) cnt++;
+        else cnt = 1;
+        maxi = max(maxi, cnt);
+    }
+    cout<<maxi;
+    return 0;
+    
+}
