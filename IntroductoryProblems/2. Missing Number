@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+#include<cstdio>
+#include <iostream> 
+#define ll long long
+#define endl '\n'
+using namespace std;
+
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    ll n;
+    cin>>n;
+    ll xr = 0;
+    for(int i=1; i<n; i++){
+        int x; cin>>x;
+        xr^=i; xr^=x;
+    }
+    xr = xr^n;
+    cout<<xr<<endl;
+    
+    return 0;
+    
+}
