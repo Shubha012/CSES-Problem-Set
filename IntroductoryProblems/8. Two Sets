@@ -1,0 +1,48 @@
+#include <iostream>
+#include <vector>
+
+#define ll long long
+#define endl '\n'
+
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int n;
+    cin >> n;
+
+    ll total = (n * 1LL * (n + 1)) / 2;
+
+    if (total % 2 != 0) {
+        cout << "NO" << endl;
+        return 0;
+    }
+
+    cout << "YES" << endl;
+
+    vector<ll> subset1, subset2;
+    ll sum_needed = total / 2;
+    ll current_sum = 0;
+
+    for (ll i = n; i >= 1; i--) {
+        if (current_sum + i <= sum_needed) {
+            subset1.push_back(i);
+            current_sum += i;
+        } else {
+            subset2.push_back(i);
+        }
+    }
+
+    // Print the subsets
+    cout << subset1.size() << endl;
+    for (ll x : subset1) cout << x << " ";
+    cout << endl;
+
+    cout << subset2.size() << endl;
+    for (ll x : subset2) cout << x << " ";
+    cout << endl;
+
+    return 0;
+}
